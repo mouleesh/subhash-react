@@ -1,9 +1,29 @@
+import { useState } from "react";
+
 function Login(){
+    const [username, setUsername] = useState("Russia");
+
+    function func(e){
+        setUsername(e.target.value);
+    }
+
     return <div id={"login-box"}>
-        <input type="text" placeholder="Username"/> 
+        <p>{username}</p>
+
+        <input 
+            onChange={func} 
+            value={username} 
+            className={"login-username"} 
+            type="text" 
+            placeholder="Username"/> 
         <br />
-        <input type="password" placeholder="Password"/>
+        
+        <input 
+            className={"login-password"} 
+            type="password" 
+            placeholder="Password"/>
         <br />
+        
         <button>Login</button>
     </div>
 }
