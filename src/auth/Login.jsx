@@ -1,30 +1,28 @@
-import { useState } from "react";
 
-function Login(){
-    const [username, setUsername] = useState("Russia");
-
-    function func(e){
-        setUsername(e.target.value);
-    }
+function Login({a, username, password, errorMessage, handlePasswordChange, handleUsernameChange, handleSubmit}){
 
     return <div id={"login-box"}>
-        <p>{username}</p>
-
+        <h1>{a}</h1>
         <input 
-            onChange={func} 
+            onChange={handleUsernameChange} 
             value={username} 
+            name="username"
             className={"login-username"} 
             type="text" 
             placeholder="Username"/> 
         <br />
         
         <input 
+            value={password}
+            onChange={handlePasswordChange}
             className={"login-password"} 
             type="password" 
             placeholder="Password"/>
         <br />
+
+        <p style={{color: "red"}}>{errorMessage}</p>
         
-        <button>Login</button>
+        <button onClick={handleSubmit}>Login</button>
     </div>
 }
 
