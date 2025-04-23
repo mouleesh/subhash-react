@@ -1,8 +1,39 @@
+import { useState } from "react";
+import usersData from "./../userData";
 
-function Login({a, username, password, errorMessage, handlePasswordChange, handleUsernameChange, handleSubmit}){
+function Login(){
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
+	const [usersArr, setUserArr] = useState(usersData);
+
+    const handleUsernameChange = (e) => {
+        setUsername(e.target.value)
+    }
+
+    const handlePasswordChange = (e) => {
+        setPassword(e.target.value)
+    }
+
+    const handleSubmit = () => {
+        if(username === ""){
+            setErrorMessage("Please enter the username");
+            return;
+        }
+        if(password === ""){
+            setErrorMessage("Please enter the password");
+            return;
+        }
+
+        if(usersArr.some(a => (a.username === username && a.password === password))){
+            alert("Login successful")
+        } else {
+            setErrorMessage("Wrong credentials!")
+        }
+    }
 
     return <div id={"login-box"}>
-        <h1>{a}</h1>
+
         <input 
             onChange={handleUsernameChange} 
             value={username} 
