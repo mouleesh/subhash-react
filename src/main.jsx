@@ -4,6 +4,7 @@ import PublicLayout from './PublicLayout.jsx'
 import { BrowserRouter, Routes, Route } from "react-router";
 import Signup from './auth/Signup.jsx';
 import Login from './auth/Login.jsx';
+import Sample from './Sample.jsx';
 
 
 createRoot(document.getElementById('root')).render(
@@ -13,6 +14,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/" element={<PublicLayout />} >
           <Route path="/login" element={<Login />} />
           <Route path="/sign-up" element={<Signup />} />
+          <Route path="/sample" element={<Sample />} />
         </Route>
         {/* <Route path="/" element={<PrivateLayout />} >
           <Route path="/home" element={<Home />} />
