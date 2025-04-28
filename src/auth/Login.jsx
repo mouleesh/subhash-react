@@ -1,32 +1,41 @@
 import { useState } from "react";
 import usersData from "./../userData";
+import { useNavigate } from "react-router";
 
 function Login(){
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
+
+    const [credentials, setCredentials] = useState({
+        username: "",
+        password: ""
+    })
+
+    const navigate = useNavigate();
+
     const [errorMessage, setErrorMessage] = useState("");
 	const [usersArr, setUserArr] = useState(usersData);
 
-    const handleUsernameChange = (e) => {
-        setUsername(e.target.value)
-    }
-
-    const handlePasswordChange = (e) => {
-        setPassword(e.target.value)
+    //Generic Event handler.
+    const handleChange = (e) => {
+        let payload = {
+            ...credentials,
+            [e.target.name]: e.target.value
+        }
+        setCredentials(payload)
     }
 
     const handleSubmit = () => {
-        if(username === ""){
+        if(credentials.username === ""){
             setErrorMessage("Please enter the username");
             return;
         }
-        if(password === ""){
+        if(credentials.password === ""){
             setErrorMessage("Please enter the password");
             return;
         }
 
-        if(usersArr.some(a => (a.username === username && a.password === password))){
-            alert("Login successful")
+        if(usersArr.some(a => (a.username === credentials.username && a.password === credentials.password))){
+            alert("Login successful");
+            navigate("/home");
         } else {
             setErrorMessage("Wrong credentials!")
         }
@@ -35,19 +44,21 @@ function Login(){
     return <div id={"login-box"}>
 
         <input 
-            onChange={handleUsernameChange} 
-            value={username} 
+            onChange={handleChange} 
+            value={credentials.username} 
             name="username"
             className={"login-username"} 
             type="text" 
             placeholder="Username"/> 
+
         <br />
         
         <input 
-            value={password}
-            onChange={handlePasswordChange}
+            value={credentials.password}
+            onChange={handleChange}
             className={"login-password"} 
             type="password" 
+            name="password"
             placeholder="Password"/>
         <br />
 
