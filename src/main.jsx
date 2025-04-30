@@ -6,6 +6,7 @@ import Signup from './auth/Signup.jsx';
 import Login from './auth/Login.jsx';
 import Sample from './Sample.jsx';
 import Home from './Home.jsx';
+import Todo from './Todo.jsx';
 
 
 createRoot(document.getElementById('root')).render(
@@ -18,6 +19,7 @@ createRoot(document.getElementById('root')).render(
           <Route path="/sample" element={<Sample />} />
         </Route>
         <Route path='/home' element={<Home />} />
+        <Route path='/todo' element={<Todo />} />
         {/* <Route path="/" element={<PrivateLayout />} >
           <Route path="/home" element={<Home />} />
         </Route> */}

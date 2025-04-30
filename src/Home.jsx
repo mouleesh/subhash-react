@@ -31,6 +31,7 @@ function Home() {
             <p>{counter}</p>
             <button onClick={handleIncrement}> + Increment</button>
             <Link to="/login">Back to Login</Link>
+            <Link to="/todo">Go to Todo</Link>
         </>
     )
 }
