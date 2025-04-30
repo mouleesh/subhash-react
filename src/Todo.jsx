@@ -14,6 +14,7 @@ function Todo() {
 
     // }, []);
 
+    //Axios and Fetch Example - testing git branches.
     const getDataHandler = () => {
         // fetch("https://jsonplaceholder.typicode.com/todos")
         // .then((response) => {return response.json()})
