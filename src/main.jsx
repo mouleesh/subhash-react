@@ -7,6 +7,7 @@ import Login from './auth/Login.jsx';
 import Sample from './Sample.jsx';
 import Home from './Home.jsx';
 import Todo from './Todo.jsx';
+import Parent from './context/Parent.jsx';
 
 
 createRoot(document.getElementById('root')).render(
@@ -20,6 +21,7 @@ createRoot(document.getElementById('root')).render(
         </Route>
         <Route path='/home' element={<Home />} />
         <Route path='/todo' element={<Todo />} />
+        <Route path='/context' element={<Parent />} />
         {/* <Route path="/" element={<PrivateLayout />} >
           <Route path="/home" element={<Home />} />
         </Route> */}
